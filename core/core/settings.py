@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['your_app_name.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['neo-course-app.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
