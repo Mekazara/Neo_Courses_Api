@@ -1,0 +1,114 @@
+FORMAT: 1A
+HOST: https://neo-course-app.herokuapp.com/
+
+# Courses
+
+This is a sample API documentation of COURSES project to learn and improve knowledge 
+of creating Django Projects and writing a documentation for it.
+
+## Courses Collection [/courses]
+
+### List All Corses [GET]
+
++ Response 200 (application/json)
+
+        [
+           {
+                "id": 1,
+                "category": {
+                    "id": 1,
+                    "name": "Programming",
+                    "imgpath": "imgpath"
+                },
+                "name": "Python",
+                "contacts": [
+                    {
+                        "id": 1,
+                        "value": "+996 201 380 381"
+                    }
+                ]
+            }
+        ]
+
+### Create a New Course [POST]
+
+You may create a new course using this action. It takes a JSON
+object containing a course name and the neccesary details of it.
+
++ Request (application/json)
+
+        {
+            "category": {
+                "name": "Programming",
+                "imgpath": "imgpath"
+            },
+            "name": "Swift",
+            "contacts": [
+                {
+                    "value": "example contact"
+                }
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /courses/14/
+
+    + Body
+
+             {
+                "id": 14,
+                "category": {
+                    "id": 1,
+                    "name": "Programming",
+                    "imgpath": "imgpath"
+                },
+                "name": "Swift",
+                "contacts": [
+                    {
+                        "id": 17,
+                        "value": "example contact"
+                    }
+                ]
+            }
+            
+## Course Detail [/courses/{course_id}]
+
++ Parameters
+    + course_id (number) - ID of the course in the form of integer
+    
+### View a Course Detail [GET]
+
++ Response 200 (application/json)
+            
+        {
+            "id": 1,
+            "name": "Python",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "logo": "LOGO",
+            "category": "Programming",
+            "contacts": [
+                {
+                    "id": 1,
+                    "value": "0555 123 456"
+                },
+                {
+                    "id": 2,
+                    "value": "facebook_profile"
+                }
+            ],
+            "address": [
+                {
+                    "id": 1,
+                    "latitude": "00,00",
+                    "longtitude": "00,00",
+                    "address": "Tynystanova 98"
+                }
+            ]
+        }
+        
+## Delete a Course [DELETE]
+
++ Response 204
